@@ -1,0 +1,50 @@
+body {
+    width: 100vw; /* viewport width */
+    height: 100vh; /* viewport height */
+    margin: 0; /* remove default margin */
+    padding: 0; /* remove default padding */
+    animation: fadeIn 1s ease-in;
+}
+
+.fade-out {
+    animation: fadeOut 3s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* .input-field {
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    border: none;
+    padding: 0 15px;
+} */
+
+.input-field::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #6BA3F8;;
+    font-size: 16px;
+    font-family: Alata;
+}
+.input-field::-moz-placeholder { /* Firefox 19+ */
+    color: #01355F;
+    font-size: 16px;
+    font-family: Alata;
+}
+.input-field:-ms-input-placeholder { /* IE 10+ */
+    color: #01355F;
+    font-size: 16px;
+    font-family: Alata;
+}
+.input-field:-moz-placeholder { /* Firefox 18- */
+    color: #01355F;
+    font-size: 16px;
+    font-family: Alata;
+}

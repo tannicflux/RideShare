@@ -1,0 +1,47 @@
+
+<head>
+<style type="text/css">
+.auto-style1 {
+	text-align: center;
+}
+.auto-style2 {
+	text-align: center;
+}
+</style>
+</head>
+
+<div style="width: 354px; height: 755px; position: relative; border-radius: 60px; background-color: white; border: 20px solid #EFCC73; flex-direction: column; justify-content: center; align-items: center; display: flex">    
+    <div style="display: flex; justify-content: center; align-items: center; height: 50px; position: relative; color: black; font-size: 40px; font-family: Alata; font-weight: 400; word-wrap: break-word">Sign Up</div>    
+    <form action="/submit_signup" method="post" style="display: flex; flex-direction: column; align-items: flex-start; justify-content: center; width: 100%; top: 50px;">
+    <div style="display: flex; flex-direction: column; align-items: flex-start; width: 100%; margin-bottom: 10px;">
+        <label for="Name" style="font-size: 20px; font-family: Alata; font-weight: 400;">Full Name</label>
+        <input type="text" id="Name" name="full_name" placeholder="Full Name" style="border: 2px solid black; width: 354px; height: 52px; background: white;  color: rgb(0, 0, 0); font-size: 20px; font-family: Alata; font-weight: 400; word-wrap: break-word;">
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: flex-start; width: 100%; margin-bottom: 10px;">
+            <label for="Eamil" style="font-size: 20px; font-family: Alata; font-weight: 400;">Email ID</label>
+            <input type="email" id="Email" name="email" placeholder="Email ID" style="border: 2px solid black; width: 354px; height: 52px; background: white; color: rgb(0, 0, 0); font-size: 20px; font-family: Alata; font-weight: 400; word-wrap: break-word;">
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-start; width: 100%; margin-bottom: 10px;">
+            <label for="password" style="font-size: 20px; font-family: Alata; font-weight: 400;">Password</label>
+            <input type="password" id="Password" name="password" placeholder="Password" style="border: 2px solid black; width: 354px; height: 52px; background: white; color: rgb(0, 0, 0); font-size: 20px; font-family: Alata; font-weight: 400; word-wrap: break-word;">
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-start; width: 100%; margin-bottom: 10px;">
+            <label for="confirm_password" style="font-size: 20px; font-family: Alata; font-weight: 400;">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" style="border: 2px solid black; width: 354px; height: 52px; background: white; color: rgb(0, 0, 0); font-size: 20px; font-family: Alata; font-weight: 400; word-wrap: break-word;">
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-start; width: 100%; margin-bottom: 10px;">
+            <label for="dob" style="font-size: 20px; font-family: Alata; font-weight: 400;">Date of Birth</label>
+            <input type="date" id="dob" name="dob" placeholder="Date of Birth" style="border: 2px solid black; width: 354px; height: 52px; background: white; color: rgb(0, 0, 0); font-size: 20px; font-family: Alata; font-weight: 400; word-wrap: break-word;">
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-start; width: 100%; margin-bottom: 10px;">
+            <label for="city" style="font-size: 20px; font-family: Alata; font-weight: 400;">City</label>
+            <input type="text" id="city" name="city" placeholder="City" style="border: 2px solid black; width: 354px; height: 52px; background: white; color: rgb(0, 0, 0); font-size: 20px; font-family: Alata; font-weight: 400; word-wrap: break-word;">
+        </div>
+        <div style="display: flex; justify-content: center; width: 100%; margin-top: 10px;">
+            <input type="submit" value="Submit" style="background-color: green; color: white; border: none; border-radius: 250px; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">
+        </div>
+        <div style="display: flex; justify-content: center; width: 100%; margin-top: 10px;">
+            Already have an account? <a href="login.html">Sign in</a>
+        </div>
+    </form>
+</div>
