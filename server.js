@@ -12,10 +12,6 @@ import('open').then((open) => {
     app.use(cookieParser());
     app.use(express.urlencoded({ extended: true }));
 
-    app.get('/title1', function(req, res) {
-        res.sendFile(path.join(__dirname, 'public', 'title1.html'));
-      });
-
     app.get('/login_error', function(req, res) {
         res.sendFile(path.join(__dirname, 'public', 'login_error.html'));
       });
@@ -63,13 +59,14 @@ import('open').then((open) => {
       app.get('/create_group', function(req, res) {
         res.sendFile(path.join(__dirname, 'public', 'create_group.html'));
       });
+      
 
     app.use(bodyParser.urlencoded({ extended: true }));
   
     // Serve static files from the "public" directory
     app.use(express.static(path.join(__dirname, 'public')));
   
-    mongoose.connect('mongodb://localhost:27017/myDatabase', { useNewUrlParser: true, useUnifiedTopology: true })
+    mongoose.connect('rideshare.grsdbio.mongodb.net', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
 
@@ -80,8 +77,10 @@ import('open').then((open) => {
       password: String,
       confirm_password: String,
       mobile_number: String,
-      dob: Date,
-      city: String,
+      college_name: String,
+    });
+
+    const groupSchema = new mongoose.Schema({
       group_name: String,
       start_point: String,
       Destination: String,
@@ -90,6 +89,8 @@ import('open').then((open) => {
       max_people: Number,
       user_email: String,
     });
+
+
   
     const User = mongoose.model('User', userSchema);
     const Groceries = mongoose.model('Groceries', userSchema);
@@ -104,7 +105,7 @@ import('open').then((open) => {
       });
       
       app.get('/login', function(req, res) {
-        res.sendFile(path.join(__dirname, 'public', 'title1.html'));
+        res.sendFile(path.join(__dirname, 'public', 'login.html'));
       });
   
       app.post('/submit_signup', function(req, res) {
@@ -207,24 +208,6 @@ app.post('/submit_group', function(req, res) {
     });
 });
 
-app.post('/search_groups', function(req, res) {
-  const groupName = req.cookies.group; // get the group name from the cookie
-  const email = req.body.email;
-
-  const Group = mongoose.model(groupName); // get the Mongoose model for the groupName collection
-  Group.find({ user_email: email }) // find all groups with the user email in the database
-    .then(groups => {
-      const out = groups.map(group => group.Destination);
-      console.log(process.cwd()); // log the current working directory
-      console.log(out); // log the out array
-      fs.writeFileSync('search_results.txt', out.join('\n'));
-
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).send('Error occurred while searching for groups');
-    });
-});
 
   
     app.listen(3000, function() {
