@@ -1,0 +1,122 @@
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</head>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Members</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <form action="/join_group" method="post">
+            <button type="submit" class="btn btn-primary" style="background-color: green;">Join</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-image: url('src/background.png'); background-size: cover;">
+    <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-color: rgba(255, 255, 255, 0.2);"></div>
+    <div >
+    </div>   
+    <div class="card-container" >
+        <button id="scroll-left" style="width: 50px; height: 50px; position: fixed; left: 0; top: 40%; transform: translateY(-50%); border-radius: 100%; background-color: none; font-size: 25px;">&#8592;</button>
+            <button id="scroll-right" style="width: 50px; height: 50px; position: fixed; right: 0; top: 40%; transform: translateY(-50%); border-radius: 100%;font-size: 25px;">&#8594;</button>
+        <div class="card-wrapper" style="position: relative; top: 230px; left: 0; right: 0; padding: auto; margin-left: 50px; margin-right: 50px;">
+            
+        </div>
+        <script>
+            // Assume this is your data from the server
+            const scrollLeftButton = document.querySelector('#scroll-left');
+            const scrollRightButton = document.querySelector('#scroll-right');
+            const cardWrapper = document.querySelector('.card-wrapper');
+            var exampleModal = document.getElementById('exampleModal');
+
+            // Add event listeners to the buttons
+            scrollLeftButton.addEventListener('click', () => {
+                cardWrapper.scrollBy({ left: -500, behavior: 'auto' });
+            });
+
+            scrollRightButton.addEventListener('click', () => {
+                cardWrapper.scrollBy({ left: 500, behavior: 'auto' });
+            });
+
+            const source = new EventSource('/groceries_group');
+
+            // Define what should happen when a message is received
+            var data = <%- JSON.stringify(groups) %>;
+
+            data.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'card text-white bg-transparent';
+            card.style.nimWidth = '600px';
+            card.style.boxShadow = '5px 5px 10px black';
+
+            const cardHeader = document.createElement('div');
+            cardHeader.className = 'card-header';
+            cardHeader.textContent = "Name: "+item.group_name+"\n";
+
+            const cardBody = document.createElement('div');
+            cardBody.className = 'card-body';
+            cardBody.innerHTML = "Owner: " + item.user_email + "<br>" +
+                                "Start Point: " + item.start_point + "<br>" +
+                                "Destination " + item.Destination + "<br>"+
+                                "Date: " + new Date(item.date).toLocaleDateString() + "<br>" +
+                                "Time: " + item.start_time + "<br>";
+
+            card.appendChild(cardHeader);
+            card.appendChild(cardBody);
+
+            cardWrapper.appendChild(card);
+            });
+
+            console.log(data);  
+            
+            var cards = Array.from(document.querySelectorAll('.card'));
+            cards.forEach(function(card) {
+                card.addEventListener('click', function() {
+                    var index = cards.indexOf(card);
+                    console.log('Index:', index);
+                    var myModalEl = document.getElementById('exampleModal');
+                    var modalTitleEl = myModalEl.querySelector('.modal-title');
+                    users = data[index].user;
+                    modalTitleEl.textContent = "Members (" + data[index].existing_people + "/" + data[index].max_people + ")";
+                    // users.forEach(function(user) {
+                    //     var modalBodyEl = myModalEl.querySelector('.modal-body');
+                    //     var userEl = document.createElement('div');
+                    //     userEl.textContent = user.full_name;
+                    //     modalBodyEl.appendChild(userEl);
+                    // });
+                    var modalBodyEl = myModalEl.querySelector('.modal-body');
+                        modalBodyEl.innerHTML = ''; // Set the modal body text to empty
+
+                        users.forEach(function(user) {
+                            var userEl = document.createElement('div');
+                            userEl.textContent = user.full_name;
+                            modalBodyEl.appendChild(userEl);
+                        });
+                    
+                    var modal = new bootstrap.Modal(myModalEl);
+
+                    // Show the modal
+                    modal.show();
+                });
+            });   
+        </script>
+    </div>
+    <form action="/create_group" method="post">
+    <button type="submit" name="create_group" value="create_group" style="border: 2px solid black; width: 20%; height: 55px; left: 41%; top: 90%; position: absolute; background: white; border-radius: 40px; color: rgb(0, 0, 0); font-size: 35px; font-family: Alata; font-weight: 400; word-wrap: break-word; opacity: 80%;">Create Group</button>
+    </form>
+    
+</div>
