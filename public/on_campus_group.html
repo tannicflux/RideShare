@@ -55,7 +55,7 @@
             const source = new EventSource('/groceries_group');
 
             // Define what should happen when a message is received
-            var data = <%- JSON.stringify(groups) %>;
+            var data = - JSON.stringify(groups) ;
 
             data.forEach(item => {
             const card = document.createElement('div');
