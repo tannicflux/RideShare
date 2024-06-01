@@ -165,6 +165,7 @@ import('open').then((open) => {
     mobile_number: String,
     dob: Date,
     city: String,
+    ig: String
   });
 
   const groupSchema = new mongoose.Schema({
@@ -309,7 +310,20 @@ app.post('/submit_group', async function(req, res) {
 
 app.post('/search_groups', function(req, res) {});
   
-
+app.get('/getInstagram/:name', async (req, res) => {
+  const name = req.params.name;
+  try {
+    const user = await User.findOne({ full_name: name });
+    if (user) {
+      res.json({ instagram: user.ig });
+    } else {
+      res.status(404).json({ error: 'User not found' });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
   
     app.listen(3000, function() {
       console.log('Server started on port 3000');
