@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+      <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="assets/css/styles.css">
+
+      <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+   </head>
+   <body>
+      ==================== HEADER ====================
+      <header class="header" id="header">
+         <nav class="nav container">
+            <a href="#" class="nav__logo">UniRides</a>
+
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="#" class="nav__link">Home</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#" class="nav__link" id="join-btn">Join a Group</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#" class="nav__link" id="create_group-btn">Create Group</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#" class="nav__link">About Us</a>
+                  </li>
+               </ul>
+
+               <div class="nav__close" id="nav-close">
+                  <i class="ri-close-line"></i>
+               </div>
+            </div>
+
+            <div class="nav__actions">
+
+               <i class="ri-user-line nav__login" id="login-btn"></i>
+
+               <div class="nav__toggle" id="nav-toggle">
+                  <i class="ri-menu-line"></i>
+               </div>
+            </div>
+         </nav>
+      </header>
+
+
+      ==================== LOGIN ====================
+      <div class="login" id="login">
+         <form action="/login" method="post" class="login__form" id="loginForm">
+            <h2 class="login__title">Log In</h2>
+            
+            <div class="login__group">
+               <div>
+                  <label for="email" class="login__label">Email</label>
+                  <input type="email" placeholder="Write your email" id="email" class="login__input" name="emailInput">
+               </div>
+               
+               <div>
+                  <label for="password" class="login__label">Password</label>
+                  <input type="password" placeholder="Enter your password" id="password" class="login__input" name="passwordInput">
+               </div>
+            </div>
+
+            <div>
+               <p class="login__signup">
+                  You do not have an account? <a href="#" id="signup-btn">Sign up</a>
+               </p>
+   
+               <a href="#" class="login__forgot">
+                  You forgot your password
+               </a>
+   
+               <button type="submit" class="login__button">Log In</button>
+            </div>
+         </form>
+
+         <i class="ri-close-line login__close" id="login-close"></i>
+      </div>
+
+      <!--==================== SIGNUP ====================-->
+      <div class="signup" id="signup">
+         <form action="/submit_signup" method="post" class="signup__form">
+            <h2 class="signup__title">Log In</h2>
+            
+            <div class="signup__group">
+               <div>
+                  <label for="full_name" class="signup__label">Full Name</label>
+                  <input type="text" name="full_name" placeholder="Write your Full Name" id="full_name" class="signup__input">
+               </div>
+
+               <div>
+                  <label for="email" class="signup__label">Email</label>
+                  <input type="email" name="email" placeholder="Write your email" id="email_signup" class="signup__input">
+               </div>
+               
+               <div>
+                  <label for="password" class="signup__label">Password</label>
+                  <input type="password" name="password" placeholder="Enter your password" id="password_signup" class="signup__input">
+               </div>
+
+               <div>
+                  <label for="password" class="signup__label">Confirm Password</label>
+                  <input type="password" name="confirm_password" placeholder="Confirm Password" id="confirm_password" class="signup__input">
+               </div>
+
+               <div>
+                  <label for="phone_number" class="signup__label">Phone Number</label>
+                  <input type="tel" name="mobile_number" placeholder="Enter your Phone Number" id="phone_number" class="signup__input">
+               </div> 
+               
+               <div>
+                  <label for="college_name" class="signup__label">College Name</label>
+                  <input type="text" name="college_name" placeholder="Enter your College Name" id="college_name" class="signup__input">
+               </div>
+            </div>
+
+            <div>
+               <p class="signup__login">
+                  You have an account? <a href="#">Log in</a>
+               </p>
+      
+               <button type="submit" class="signup__button">Sign Up</button>
+            </div>
+         </form>
+
+         <i class="ri-close-line login__close" id="signup-close"></i>
+      </div>
+
+      <!--==================== WHERE YOU HEADED ====================-->
+      <div class="where_you_headed" id="where_you_headed">
+         <form action="/select_type" method="post" class="where_you_headed__form" id="where_you_headed__form" style="max-width: 400px; margin-inline: auto; margin-top: 20px;">
+            <h2 class="where_you_headed__title">Where You Headed</h2>
+            
+            <div class="where_you_headed__group">
+               <div>
+                  <!-- <label for="full_name" class="where_you_headed__label">Full Name</label> -->
+                  <button type="submit" name="button" value="Groceries" class="where_you_headed__input">Groceries</button>
+               </div>
+
+               <div>
+                  <!-- <label for="email" class="where_you_headed__label">Email</label> -->
+                  <button type="submit" name="button"  value="Airport" class="where_you_headed__input">Airport</button>               
+               </div>
+               
+               <div>
+                  <!-- <label for="password" class="where_you_headed__label">Password</label> -->
+                  <button type="submit" name="button" value="Metro" class="where_you_headed__input">Metro/Bart</button>               
+               </div>
+
+               <div>
+                  <!-- <label for="password" class="where_you_headed__label">Confirm Password</label> -->
+                  <button type="submit" name="button" value="House" class="where_you_headed__input">Home</button>               
+               </div>
+
+               <div>
+                  <!-- <label for="phone_number" class="where_you_headed__label">Phone Number</label> -->
+                  <button type="submit" name="button" value="On_campus" class="where_you_headed__input">On Campus</button>
+               </div> 
+               
+               <div>
+                  <!-- <label for="college_value" class="where_you_headed__label">College value</label> -->
+                  <button type="submit" name="button" value="Other" class="where_you_headed__input">Other</button>
+               </div>
+            </div>
+         </form>
+
+         <i class="ri-close-line login__close" id="where_you_headed-close"></i>
+      </div>
+
+      <!--==================== GROUP ====================-->
+      <div class="cards" id="cards">
+         <div class="card__group">
+            <button id="scroll-left" style="width: 50px; height: 50px; position: fixed; left: 0; top: 40%; transform: translateY(-50%); border-radius: 100%; background-color: transparent; font-size: 40px;">&lt;</button>
+            <button id="scroll-right" style="width: 50px; height: 50px; position: fixed; right: 0; top: 40%; transform: translateY(-50%); border-radius: 100%; background-color: transparent; font-size: 40px;">&gt</button>
+            <div class="card-wrapper">
+               <script>
+               document.addEventListener('DOMContentLoaded', (event) => {
+                  // Assume this is your data from the server
+                  const cardWrapper = document.querySelector('.card-wrapper');
+                  var data = JSON.parse('<%- JSON.stringify(groups) %>');
+                  console.log(data);  
+               
+                  data.forEach(item => {
+                  const card = document.createElement('div');
+                  card.className = 'card text-white bg-transparent';
+                  card.style.nimWidth = '600px';
+                  card.style.boxShadow = '5px 5px 10px black';
+               
+                  const cardHeader = document.createElement('div');
+                  cardHeader.className = 'card-header';
+                  cardHeader.textContent = item.Destination+"\n";
+               
+                  const cardBody = document.createElement('div');
+                  cardBody.className = 'card-body';
+                  cardBody.innerHTML = "Owner: " + item.user_data[0].full_name + "<br>" +
+                                 "Start Point: " + item.start_point + "<br>" +
+                                 "Date: " + new Date(item.date).toLocaleDateString() + "<br>" +
+                                 "Time: " + item.start_time + "<br>"+
+                                 "Seats Available: " + (item.max_people-item.existing_people) + "<br>";
+               
+                  card.appendChild(cardHeader);
+                  card.appendChild(cardBody);
+               
+                  cardWrapper.appendChild(card);
+                  });
+               
+                   
+               });
+               </script>
+            </div>
+            <!-- <p><%=groups%></p> -->
+         </div>
+         <i class="ri-close-line login__close" id="cards-close"></i>
+      </div>
+
+      <!--==================== CREATE GROUP ====================-->
+      <div class="create_group" id="create_group">
+         <form action="/create_group" method="post" class="create_group__form">
+            <h2 class="create_group__title">Create Group</h2>
+            
+            <div class="create_group__group">
+               <div>
+                  <label for="group_type" class="create_group__label">Group Type</label>
+                  <select name="group_type" class="create_group__input" id="group_type">
+                     <option value="groceries">GROCERIES</option>
+                     <option value="airport">AIRPORT</option>
+                     <option value="metro">METRO/BART</option>
+                     <option value="home">HOME</option>
+                     <option value="on_campus">ON CAMPUS</option>
+                     <option value="other">OTHER</option>
+                  </select>
+               </div>
+
+               <div>
+                  <label for="Start_point" class="create_group__label">Start Point</label>
+                  <input type="text" placeholder="Enter Start Point" id="Start_point" class="create_group__input">
+               </div>
+
+               <div>
+                  <label for="Destination" class="create_group__label">Destination</label>
+                  <input type="text" placeholder="Enter Destination" id="Destination" class="create_group__input">
+               </div>
+
+               <div>
+                  <label for="start_time" class="create_group__label">Start Time</label>
+                  <input type="time" placeholder="Enter Start Time" id="start_time" class="create_group__input">
+               </div>
+
+               <div>
+                  <label for="Date" class="create_group__label">Date</label>
+                  <input type="date" placeholder="Enter Date" id="Date" class="create_group__input">
+               </div>   
+
+               <div>
+                  <label for="Time" class="create_group__label">Time</label>
+                  <input type="time" placeholder="Enter Time" id="Time" class="create_group__input">
+               </div>
+
+               <div>
+                  <label for="Seats" class="create_group__label">Seats</label>
+                  <input type="number" placeholder="Enter Seats" id="Seats" class="create_group__input">
+               </div>
+               <div>
+                  <label for="type" class="create_group__label">Uber Type</label>
+                  <select name="uber_type" class="create_group__input" id="type">
+                     <option value="Uber X">Uber Regular</option>
+                     <option value="Ubel Xl">Uber Xl</option>
+                 </select>
+               </div>
+            </div>
+
+            <div>
+               <p class="create_group__signup">
+                  Want to join a Group?<a id="join-link" href="#" onclick="joinlink()">Join</a>
+               </p>
+   
+               <button type="submit" class="create_group__button">Create</button>
+            </div>
+         </form>
+
+         <i class="ri-close-line create_group__close" id="create_group-close"></i>
+      </div>
+
+      <!--==================== MAIN ====================-->
+      <main class="main">
+         <img src="assets/img/bg-image.png" alt="image" class="main__bg">
+      </main>
+      
+      <!--=============== MAIN JS ===============-->
+      <script src="assets/js/main.js"></script>
+      <script src="assets/js/posts.js"></script>
+   </body>
+</html>
